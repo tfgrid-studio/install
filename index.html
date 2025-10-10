@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install TFGrid Compose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+        
+        .install-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        code {
+            display: block;
+            font-family: "Monaco", "Courier New", monospace;
+            font-size: 1rem;
+            color: #4ade80;
+            word-wrap: break-word;
+            user-select: all;
+        }
+        
+        .copy-btn {
+            background: #4ade80;
+            color: #000;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .note {
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            code {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">⚡</div>
+        <h1>Install TFGrid Compose</h1>
+        <p>Deploy anything to ThreeFold Grid in minutes</p>
+        
+        <div class="install-box">
+            <code id="install-command">curl -sSL install.tfgrid.studio | sh</code>
+            <button class="copy-btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+        </div>
+        
+        <div class="links">
+            <a href="https://tfgrid.studio">🏠 Home</a>
+            <a href="https://docs.tfgrid.studio">📚 Docs</a>
+            <a href="https://docs.tfgrid.studio/getting-started/quickstart">🚀 Quick Start</a>
+            <a href="https://github.com/tfgrid-studio/tfgrid-compose">💻 GitHub</a>
+        </div>
+        
+        <p class="note">
+            Open source • Apache 2.0 License<br>
+            Made with 🔥 for the decentralized web
+        </p>
+    </div>
+    
+    <script>
+        function copyToClipboard() {
+            const command = document.getElementById('install-command').textContent;
+            navigator.clipboard.writeText(command).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied!';
+                btn.style.background = '#22c55e';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#4ade80';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
