@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 # TFGrid Compose Installer
-# Usage: curl -sSL install.tfgrid.studio | sh
+# Usage: curl -sSL install.tfgrid.studio/install.sh | sh
 
 set -e
 
@@ -16,65 +16,65 @@ REPO_URL="https://github.com/tfgrid-studio/tfgrid-compose"
 INSTALL_DIR="${HOME}/.tfgrid"
 REPO_DIR="${INSTALL_DIR}/tfgrid-compose"
 
-echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║   TFGrid Compose Installer v2.0.0     ║${NC}"
-echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
-echo ""
+printf "${BLUE}╔════════════════════════════════════════╗${NC}\n"
+printf "${BLUE}║   TFGrid Compose Installer v2.0.0     ║${NC}\n"
+printf "${BLUE}╔════════════════════════════════════════╗${NC}\n"
+printf "\n"
 
 # Check if git is installed
-if ! command -v git &> /dev/null; then
-    echo -e "${RED}✗ Error: git is not installed${NC}"
-    echo "Please install git first:"
-    echo "  Ubuntu/Debian: sudo apt-get install git"
-    echo "  macOS: brew install git"
-    echo "  Fedora: sudo dnf install git"
+if ! command -v git > /dev/null 2>&1; then
+    printf "${RED}✗ Error: git is not installed${NC}\n"
+    printf "Please install git first:\n"
+    printf "  Ubuntu/Debian: sudo apt-get install git\n"
+    printf "  macOS: brew install git\n"
+    printf "  Fedora: sudo dnf install git\n"
     exit 1
 fi
 
 # Check if make is installed
-if ! command -v make &> /dev/null; then
-    echo -e "${RED}✗ Error: make is not installed${NC}"
-    echo "Please install make first:"
-    echo "  Ubuntu/Debian: sudo apt-get install build-essential"
-    echo "  macOS: xcode-select --install"
-    echo "  Fedora: sudo dnf groupinstall 'Development Tools'"
+if ! command -v make > /dev/null 2>&1; then
+    printf "${RED}✗ Error: make is not installed${NC}\n"
+    printf "Please install make first:\n"
+    printf "  Ubuntu/Debian: sudo apt-get install build-essential\n"
+    printf "  macOS: xcode-select --install\n"
+    printf "  Fedora: sudo dnf groupinstall 'Development Tools'\n"
     exit 1
 fi
 
-echo -e "${GREEN}✓ Prerequisites check passed${NC}"
-echo ""
+printf "${GREEN}✓ Prerequisites check passed${NC}\n"
+printf "\n"
 
 # Create install directory
-echo -e "${BLUE}→ Creating installation directory...${NC}"
+printf "${BLUE}→ Creating installation directory...${NC}\n"
 mkdir -p "${INSTALL_DIR}"
 
 # Clone or update repository
 if [ -d "${REPO_DIR}" ]; then
-    echo -e "${YELLOW}→ Repository already exists, updating...${NC}"
+    printf "${YELLOW}→ Repository already exists, updating...${NC}\n"
     cd "${REPO_DIR}"
     git fetch origin
     git reset --hard origin/main
 else
-    echo -e "${BLUE}→ Cloning tfgrid-compose repository...${NC}"
+    printf "${BLUE}→ Cloning tfgrid-compose repository...${NC}\n"
     git clone "${REPO_URL}" "${REPO_DIR}"
     cd "${REPO_DIR}"
 fi
 
-echo -e "${GREEN}✓ Repository ready${NC}"
-echo ""
+printf "${GREEN}✓ Repository ready${NC}\n"
+printf "\n"
 
 # Run installation
-echo -e "${BLUE}→ Installing tfgrid-compose CLI...${NC}"
+printf "${BLUE}→ Installing tfgrid-compose CLI...${NC}\n"
 make install
 
-echo ""
-echo -e "${GREEN}╔════════════════════════════════════════╗${NC}"
-echo -e "${GREEN}║  ✓ Installation Complete!             ║${NC}"
-echo -e "${GREEN}╔════════════════════════════════════════╗${NC}"
-echo ""
-echo -e "Run: ${BLUE}tfgrid-compose --version${NC} to verify installation"
-echo -e "Get started: ${BLUE}tfgrid-compose --help${NC}"
-echo ""
-echo -e "Documentation: ${BLUE}https://docs.tfgrid.studio${NC}"
-echo -e "Quick Start: ${BLUE}https://docs.tfgrid.studio/getting-started/quickstart${NC}"
-echo ""
+printf "\n"
+printf "${GREEN}╔════════════════════════════════════════╗${NC}\n"
+printf "${GREEN}║  ✓ Installation Complete!             ║${NC}\n"
+printf "${GREEN}╔════════════════════════════════════════╗${NC}\n"
+printf "\n"
+printf "Run: ${BLUE}tfgrid-compose --version${NC} to verify installation\n"
+printf "Get started: ${BLUE}tfgrid-compose --help${NC}\n"
+printf "\n"
+printf "Documentation: ${BLUE}https://docs.tfgrid.studio${NC}\n"
+printf "Quick Start: ${BLUE}https://docs.tfgrid.studio/getting-started/quickstart${NC}\n"
+printf "\n"
