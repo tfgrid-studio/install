@@ -16,7 +16,7 @@ git push origin main
 
 ## Step 2: Enable GitHub Pages
 
-1. Go to repository settings: `https://github.com/tfgrid-studio/install/settings/pages`
+1. Go to repository settings: `https://github.com/tfgrid-studio/tfgrid-install/settings/pages`
 2. Under "Build and deployment":
    - **Source:** Deploy from a branch
    - **Branch:** `main`
