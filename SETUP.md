@@ -143,7 +143,7 @@ For now, use: `curl -sSL install.tfgrid.studio/install.sh | sh`
 
 Once live, update:
 
-1. **tfgrid-www** - Change install command to one-liner
+1. **tfgrid-website** - Change install command to one-liner
 2. **tfgrid-docs** - Update installation docs
 3. **tfgrid-compose README** - Add one-line installer
 
