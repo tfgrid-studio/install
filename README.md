@@ -1,116 +1,181 @@
-# TFGrid Studio Install
+# TFGrid Install Website
 
-**One-line installer for TFGrid Compose**
+The official installation website for TFGrid Compose. Provides a beautiful, simple interface for users to install TFGrid Compose with a single command. Built with Astro and deployed to GitHub Pages.
 
-This repository hosts the installation script for [TFGrid Compose](https://github.com/tfgrid-studio/tfgrid-compose), the complete development platform for ThreeFold Grid.
+## 🌐 Live Website
 
----
+Visit [install.tfgrid.studio](https://install.tfgrid.studio) to install TFGrid Compose.
 
-## Quick Install
+## 🚀 Features
 
-```bash
-curl -sSL install.tfgrid.studio | sh
+- **One-Click Installation**: Simple copy-paste installation command
+- **Copy to Clipboard**: Easy copying of the install command with visual feedback
+- **Responsive Design**: Works beautifully on desktop and mobile
+- **Ecosystem Overview**: Links to all TFGrid Studio services
+- **Fast & Lightweight**: Static site with excellent performance
+
+## 🛠️ Technology Stack
+
+- **Framework**: [Astro](https://astro.build/) - Modern web framework
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- **Icons**: Custom SVG icons
+- **Deployment**: GitHub Pages with automated CI/CD
+
+## 📁 Project Structure
+
+```
+tfgrid-install/
+├── public/                         # Static assets
+│   ├── favicon.svg                # Site favicon
+│   └── CNAME                      # Custom domain configuration
+├── src/
+│   └── pages/
+│       └── index.astro           # Main install page
+├── astro.config.mjs              # Astro configuration
+├── tailwind.config.mjs           # Tailwind configuration
+├── package.json                  # Dependencies and scripts
+├── install.sh                    # The actual install script
+└── README.md                     # This file
 ```
 
-That's it! The script will:
-1. Check prerequisites (git, make)
-2. Clone tfgrid-compose repository
-3. Install the CLI to your PATH
-4. Verify the installation
+## 🏃‍♂️ Development
 
----
+### Prerequisites
 
-## What Gets Installed
+- Node.js 18+
+- npm or yarn
 
-- **tfgrid-compose CLI** - Command-line tool for deploying to ThreeFold Grid
-- **Installation location:** `~/.tfgrid/tfgrid-compose`
-- **Binary location:** `/usr/local/bin/tfgrid-compose` (or `~/.local/bin`)
+### Local Development
 
----
-
-## Manual Installation
-
-If you prefer to install manually:
-
-```bash
-# Clone the repository
-git clone https://github.com/tfgrid-studio/tfgrid-compose
-cd tfgrid-compose
-
-# Run the installer
-make install
-
-# Verify installation
-tfgrid-compose --version
-```
-
----
-
-## Requirements
-
-- **git** - Version control system
-- **make** - Build automation tool
-- **bash** - Shell (already available on Linux/macOS)
-
----
-
-## How It Works
-
-This repository serves two files via GitHub Pages:
-
-1. **`install.sh`** - The actual installation script
-2. **`index.html`** - Pretty landing page at `install.tfgrid.studio`
-
-When you run `curl -sSL install.tfgrid.studio | sh`, the custom domain redirects to serve the `install.sh` script directly.
-
----
-
-## Custom Domain Setup
-
-To enable `install.tfgrid.studio`:
-
-1. **Enable GitHub Pages** in repository settings
-   - Source: Deploy from `main` branch
-   - Custom domain: `install.tfgrid.studio`
-
-2. **Add DNS records** at your domain provider:
-   ```
-   Type: CNAME
-   Name: install
-   Value: tfgrid-studio.github.io
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/tfgrid-studio/tfgrid-install.git
+   cd tfgrid-install
    ```
 
-3. **Wait for DNS propagation** (usually 5-15 minutes)
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-4. **Enable HTTPS** in GitHub Pages settings
+3. **Start development server:**
+   ```bash
+   npm run dev
+   ```
 
----
+4. **Open your browser** to `http://localhost:4321`
 
-## Testing Locally
+The development server supports hot reloading - changes will be reflected immediately.
+
+### Build for Production
 
 ```bash
-# Serve the script locally
-python3 -m http.server 8000
-
-# Test the installer
-curl -sSL http://localhost:8000/install.sh | sh
+npm run build
 ```
 
+This creates a `dist/` directory with the production build.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+Serves the production build locally for testing.
+
+## 🚀 Deployment
+
+### Automatic Deployment
+
+The website is automatically deployed to GitHub Pages when changes are pushed to the `main` branch via GitHub Actions.
+
+### Manual Deployment
+
+```bash
+# Build the site
+npm run build
+
+# The dist/ folder contains the built site ready for deployment
+```
+
+## 🔧 Configuration
+
+### Custom Domain
+
+The site is configured to deploy to `install.tfgrid.studio` via the `public/CNAME` file.
+
+## 🎨 Design
+
+The site features a beautiful purple gradient background with glassmorphism effects, using the TFGrid Studio brand colors.
+
+- **Background**: Purple to indigo gradient
+- **Accent Colors**: Indigo and purple tones
+- **Typography**: Clean, modern fonts
+- **Effects**: Backdrop blur and subtle animations
+
+## 📊 Installation Command
+
+The site provides the following installation command:
+
+```bash
+curl -sSL install.tfgrid.studio/install.sh | sh
+```
+
+This command:
+- Downloads the install script from `install.tfgrid.studio`
+- Pipes it to bash for execution
+- Installs TFGrid Compose system-wide
+
+## 🔗 Ecosystem Links
+
+The site provides quick access to:
+- **TFGrid Studio**: Main website ([tfgrid.studio](https://tfgrid.studio))
+- **Registry**: Browse available tools ([registry.tfgrid.studio](https://registry.tfgrid.studio))
+- **Documentation**: Guides and references ([docs.tfgrid.studio](https://docs.tfgrid.studio))
+
+## 🤝 Contributing
+
+### Code Contributions
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/new-feature`
+3. Make your changes
+4. Test locally: `npm run dev`
+5. Commit and push your changes
+6. Submit a pull request
+
+### Content Updates
+
+- Ensure the installation command remains accurate
+- Keep ecosystem links up to date
+- Maintain responsive design across all devices
+
+## 📈 Performance
+
+- **Lighthouse Score**: Targets 90+ on all metrics
+- **Bundle Size**: Optimized with Astro's built-in optimizations
+- **Loading Speed**: Fast initial page loads with minimal JavaScript
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Build fails:**
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Getting Help
+
+- **Issues**: [GitHub Issues](https://github.com/tfgrid-studio/tfgrid-install/issues)
+- **Documentation**: [docs.tfgrid.studio](https://docs.tfgrid.studio)
+
+## 📄 License
+
+Licensed under the Apache License 2.0. See [LICENSE](../LICENSE) for details.
+
 ---
 
-## Links
-
-- **Main Site:** [tfgrid.studio](https://tfgrid.studio)
-- **Documentation:** [docs.tfgrid.studio](https://docs.tfgrid.studio)
-- **TFGrid Compose:** [github.com/tfgrid-studio/tfgrid-compose](https://github.com/tfgrid-studio/tfgrid-compose)
-- **Quick Start:** [docs.tfgrid.studio/getting-started/quickstart](https://docs.tfgrid.studio/getting-started/quickstart)
-
----
-
-## License
-
-Apache 2.0 License - see [LICENSE](../LICENSE) for details
-
----
-
-**Made with 🔥 for the decentralized web**
+**Ready to install TFGrid Compose?** Visit [install.tfgrid.studio](https://install.tfgrid.studio) or run the command above!
