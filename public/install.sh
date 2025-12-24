@@ -17,7 +17,7 @@ INSTALL_DIR="${HOME}/.tfgrid"
 REPO_DIR="${INSTALL_DIR}/tfgrid-compose"
 
 printf "${BLUE}╔════════════════════════════════════════╗${NC}\n"
-printf "${BLUE}║   TFGrid Compose Installer v2.0.0     ║${NC}\n"
+printf "${BLUE}║   TFGrid Compose Installer v2.0.0      ║${NC}\n"
 printf "${BLUE}╔════════════════════════════════════════╗${NC}\n"
 printf "\n"
 
