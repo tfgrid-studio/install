@@ -1,0 +1,16 @@
+{
+  "name": "Install TFGrid Compose",
+  "short_name": "TFGrid Install",
+  "description": "Install TFGrid Compose for deploying to ThreeFold Grid",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#6366f1",
+  "background_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}
